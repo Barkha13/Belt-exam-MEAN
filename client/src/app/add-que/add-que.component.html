@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <a href="/dashboard">Home</a>
+    <a href="/" style="margin-left: 1000px;">Logout</a>
+    <br><br><br>
+    <h1>New Question</h1>
+    <br><br><br>
+    <div style="width: 500px;">
+    <form #addForm = "ngForm" style="text-align:right;">
+      Question: <textarea 
+      name="question"
+      required
+      minlength="3"
+      [(ngModel)] = 'que'
+      #question = 'ngModel' 
+      ></textarea>
+      <span style="color:red" *ngIf="!question.valid">Question is required!!(At least 10 Characters)</span><br><br>
+      
+      <br>
+      Description(optional): <textarea 
+      name="desc"
+      [(ngModel)] = 'desc'
+      ></textarea><br>
+      <button name="cancel">Cancel</button>&nbsp;
+      <button name="enter" class="btn" [disabled]="!addForm.valid">Submit</button>
+      
+    </form>
+    </div>
+  </div>
+</body>
+</html>
