@@ -31,8 +31,9 @@ export class ApiService {
   }
 
   addQue(que,desc){
-  
-    return this._http.post(`/new_que/${que}/${desc}`, que, desc)
+    this.name = this.getName();
+    
+    this._http.post(`/new_que/${que}/${desc}/${this.name}`, que, desc)
     .subscribe(
       (response) => {
         console.log('added que...');
@@ -44,4 +45,27 @@ export class ApiService {
     )
   }
 
+  showQuestions(callback){
+    this._http.get('/all')
+    .subscribe(
+      (response) => {
+        callback(response.json());
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
+  showAns(id){
+    return this._http.get(`/show/${id}`,id)
+    .subscribe(
+      // (response) => {
+      //   callback(response.json());
+      // },
+      // (err) => {
+      //   console.log(err);
+      // }
+    )
+  }
 }

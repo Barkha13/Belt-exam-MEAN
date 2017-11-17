@@ -31,6 +31,20 @@
           Action
         </td>
       </tr>
+
+      <tr *ngFor='let que of questions'>
+        <td>
+          {{que.question}}
+        </td>
+        <td>
+            {{que.answer.length}}
+        </td>
+        <td>
+          <a (click)="onShow(que._id)">Show</a>
+          &nbsp;&nbsp;
+          <a>Answer</a>
+        </td>
+      </tr>
     </table>
   </div>
 </body>

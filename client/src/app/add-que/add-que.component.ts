@@ -21,6 +21,16 @@ export class AddQueComponent implements OnInit {
   onClick(){
     console.log(this.quest,'---', this.desc);
     this._apiService.addQue(this.quest,this.desc);
+    console.log('after adding...')
+    // this._apiService.showQuestions((data)=> {
+    //   console.log('data is.....',data);
+    //   this.quest = data;
+    // });
+    
   }
 
+  goToDash(){
+    this.router.navigate(['dashboard']);
+  }
+  
 }
