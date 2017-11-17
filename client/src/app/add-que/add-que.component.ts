@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiService} from './../api.service';
+
 
 @Component({
   selector: 'app-add-que',
@@ -6,12 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-que.component.css']
 })
 export class AddQueComponent implements OnInit {
-  que = '';
+  quest = '';
   desc = '';
+  
 
-  constructor() { }
+  constructor(private _apiService : ApiService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onClick(){
+    console.log(this.quest,'---', this.desc);
+    this._apiService.addQue(this.quest,this.desc);
   }
 
 }

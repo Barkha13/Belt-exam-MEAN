@@ -30,4 +30,18 @@ export class ApiService {
     return this.name;
   }
 
+  addQue(que,desc){
+  
+    return this._http.post(`/new_que/${que}/${desc}`, que, desc)
+    .subscribe(
+      (response) => {
+        console.log('added que...');
+        // this.router.navigate(['/recipe','all'])
+      },
+      (err) => {
+        console.log('Error in adding...');
+      }
+    )
+  }
+
 }

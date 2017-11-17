@@ -8,6 +8,15 @@ module.exports = function(app){
         res.redirect('/');
     });
 
+    app.post('/new_que/:name/:que/:desc', function(req,res){
+        console.log('inside add que...');
+        res.addQue();
+
+    });
+        
+
+    
+
     app.all("*", (req,res,next) => {
         res.sendFile(path.resolve("./client/dist/index.html"))
     });

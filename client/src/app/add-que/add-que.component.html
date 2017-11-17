@@ -23,7 +23,7 @@
       name="question"
       required
       minlength="3"
-      [(ngModel)] = 'que'
+      [(ngModel)] = 'quest'
       #question = 'ngModel' 
       ></textarea>
       <span style="color:red" *ngIf="!question.valid">Question is required!!(At least 10 Characters)</span><br><br>
@@ -34,7 +34,7 @@
       [(ngModel)] = 'desc'
       ></textarea><br>
       <button name="cancel">Cancel</button>&nbsp;
-      <button name="enter" class="btn" [disabled]="!addForm.valid">Submit</button>
+      <button name="enter" class="btn" (click)="onClick()" [disabled]="!addForm.valid">Submit</button>
       
     </form>
     </div>
